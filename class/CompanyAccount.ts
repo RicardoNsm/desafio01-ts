@@ -6,7 +6,15 @@ export class CompanyAccount extends DioAccount {
     super(name, accountNumber)
   }
 
-  getLoan = (): void => {
-    console.log('Voce pegou um empréstimo')
+  getLoan = (balance: number): void => {
+    if(this.validateStatus()){
+
+      this.setBalance(balance)
+
+      console.log('voce pegou um emprestimo de R$ ' + balance)
+
+    }else{
+    console.log('Conta inválida, não foi possivel pegar o emprestimo')
+    }
   }
 }
